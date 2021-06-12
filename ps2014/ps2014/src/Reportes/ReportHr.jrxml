@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b1986754-4e94-4eba-a916-224a6a498351">
+	<property name="ireport.zoom" value="1.3310000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="estado" class="java.lang.String"/>
+	<field name="hrHasta" class="java.lang.String"/>
+	<field name="hrDesde" class="java.lang.String"/>
+	<field name="dia" class="java.lang.String"/>
+	<group name="DIAS">
+		<groupExpression><![CDATA[$F{dia}]]></groupExpression>
+		<groupHeader>
+			<band height="50">
+				<rectangle>
+					<reportElement uuid="5f219c7a-88fa-4aa7-89a2-1539dbe1ecc3" mode="Opaque" x="0" y="27" width="555" height="23" backcolor="#CCCCCC"/>
+					<graphicElement>
+						<pen lineWidth="0.0"/>
+					</graphicElement>
+				</rectangle>
+				<staticText>
+					<reportElement uuid="5ec4ec51-bb02-4280-b4c6-195f73592ad1" x="0" y="29" width="266" height="20"/>
+					<textElement textAlignment="Center">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Hora Desde]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="169fdb9d-49a4-4775-9e1c-d2897834261c" x="286" y="28" width="268" height="20"/>
+					<textElement textAlignment="Center">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Hora Hasta]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="a07aabdc-2901-4606-bece-464b5dd373c0" x="3" y="4" width="40" height="20" forecolor="#000099"/>
+					<textElement>
+						<font size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Día:]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement uuid="0a316775-b0f0-4a93-a3d8-d642b0305cdb" x="43" y="4" width="157" height="20" forecolor="#000099"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{dia}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement uuid="2f7b29ba-05e1-4173-b8a9-985f02fd5998" x="279" y="4" width="79" height="20"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{estado}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="73e7c10a-0e36-4bb9-ae9c-d9653eac6770" x="200" y="4" width="79" height="20"/>
+					<textElement textAlignment="Right">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Estado:]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="50"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="67" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="80d66cd8-003a-43be-b1f6-66eabecbbef5" x="109" y="20" width="356" height="31"/>
+				<textElement textAlignment="Center">
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[HORARIO SEMANAL]]></text>
+			</staticText>
+			<rectangle radius="10">
+				<reportElement uuid="665b9f01-581b-4af0-93aa-e4eac0ea2861" mode="Transparent" x="0" y="20" width="554" height="31"/>
+			</rectangle>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement uuid="35becc31-d186-46e2-a2cd-51b257dc1145" x="435" y="0" width="80" height="20"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="119a795a-2f30-4e1c-9c16-4d679d98c4ac" x="515" y="0" width="40" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<rectangle radius="10">
+				<reportElement uuid="b6af024e-b738-4b02-89b3-9d5c4b941711" mode="Transparent" x="435" y="-4" width="120" height="20"/>
+			</rectangle>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="19" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="3811ffe0-623d-44f8-a900-ae88b2915443" x="0" y="2" width="266" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{hrDesde}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="15f65e1f-249d-45d8-b64f-90228f046879" x="286" y="2" width="268" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{hrHasta}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b1986754-4e94-4eba-a916-224a6a498351">
+	<property name="ireport.zoom" value="1.3310000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="diagnostico" class="java.lang.String"/>
+	<field name="observaciones" class="java.lang.String"/>
+	<field name="paciente" class="java.lang.String"/>
+	<field name="fecha" class="java.lang.String"/>
+	<group name="PACIENTES">
+		<groupExpression><![CDATA[$F{paciente}]]></groupExpression>
+		<groupHeader>
+			<band height="50">
+				<rectangle>
+					<reportElement uuid="5f219c7a-88fa-4aa7-89a2-1539dbe1ecc3" positionType="Float" stretchType="RelativeToBandHeight" mode="Opaque" x="1" y="23" width="554" height="27" backcolor="#CCCCCC"/>
+					<graphicElement>
+						<pen lineWidth="0.0"/>
+					</graphicElement>
+				</rectangle>
+				<staticText>
+					<reportElement uuid="5ec4ec51-bb02-4280-b4c6-195f73592ad1" x="209" y="27" width="121" height="20"/>
+					<textElement>
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Observaciones]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="169fdb9d-49a4-4775-9e1c-d2897834261c" x="486" y="27" width="68" height="20"/>
+					<textElement>
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Fecha]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="5ec4ec51-bb02-4280-b4c6-195f73592ad1" x="11" y="27" width="115" height="20"/>
+					<textElement>
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Diagnóstico]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="a07aabdc-2901-4606-bece-464b5dd373c0" x="1" y="3" width="68" height="20" forecolor="#000099"/>
+					<textElement>
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Paciente:]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement uuid="0a316775-b0f0-4a93-a3d8-d642b0305cdb" x="69" y="3" width="407" height="20" isRemoveLineWhenBlank="true" forecolor="#000099"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{paciente}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="50"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="67" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="80d66cd8-003a-43be-b1f6-66eabecbbef5" x="59" y="20" width="456" height="31"/>
+				<textElement textAlignment="Center">
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[Listado de Diagnósticos por Pacientes]]></text>
+			</staticText>
+			<rectangle radius="10">
+				<reportElement uuid="faf5852d-2ad4-4cc4-ac6e-30fddca983b8" mode="Transparent" x="1" y="20" width="553" height="31"/>
+			</rectangle>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement uuid="35becc31-d186-46e2-a2cd-51b257dc1145" x="449" y="0" width="80" height="20"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="119a795a-2f30-4e1c-9c16-4d679d98c4ac" x="532" y="0" width="40" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<rectangle radius="10">
+				<reportElement uuid="78abdcc2-a2c9-4e19-9d7d-f331ac63cdf4" mode="Transparent" x="457" y="-4" width="99" height="23"/>
+			</rectangle>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="14" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="3811ffe0-623d-44f8-a900-ae88b2915443" x="209" y="1" width="267" height="24" isRemoveLineWhenBlank="true"/>
+				<textElement textAlignment="Justified">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{observaciones}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="15f65e1f-249d-45d8-b64f-90228f046879" x="487" y="1" width="68" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="eec069b8-d87d-4ea6-89a7-6d1023605b24" x="11" y="0" width="188" height="25" isRemoveLineWhenBlank="true"/>
+				<textElement textAlignment="Justified">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{diagnostico}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="46" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

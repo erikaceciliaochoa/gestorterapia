@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b1986754-4e94-4eba-a916-224a6a498351">
+	<property name="ireport.zoom" value="1.3310000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="paciente" class="java.lang.String"/>
+	<field name="deuda" class="java.lang.String"/>
+	<field name="desde" class="java.lang.String"/>
+	<field name="hasta" class="java.lang.String"/>
+	<variable name="porc" class="java.lang.Number" resetType="Column" incrementType="Column" calculation="Average"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="67" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="80d66cd8-003a-43be-b1f6-66eabecbbef5" x="62" y="17" width="430" height="31"/>
+				<textElement>
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[Listado de Pacientes que adeudan la Consulta]]></text>
+			</staticText>
+			<rectangle radius="10">
+				<reportElement uuid="e5d57f3c-e8e3-40c4-8eaa-5d1c599494e8" mode="Transparent" x="3" y="17" width="552" height="31"/>
+			</rectangle>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement uuid="35becc31-d186-46e2-a2cd-51b257dc1145" x="449" y="2" width="80" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="119a795a-2f30-4e1c-9c16-4d679d98c4ac" x="529" y="2" width="40" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="50" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="5f219c7a-88fa-4aa7-89a2-1539dbe1ecc3" mode="Opaque" x="1" y="22" width="554" height="27" backcolor="#CCCCCC"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="5ec4ec51-bb02-4280-b4c6-195f73592ad1" x="277" y="27" width="83" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Monto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="73e7c10a-0e36-4bb9-ae9c-d9653eac6770" x="23" y="26" width="79" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Paciente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a07aabdc-2901-4606-bece-464b5dd373c0" x="1" y="2" width="119" height="20" forecolor="#000099"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de impresión:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement uuid="2588ab13-f79a-45dd-a5af-9a28563024e1" x="120" y="2" width="171" height="20" forecolor="#000099"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="5ec4ec51-bb02-4280-b4c6-195f73592ad1" x="380" y="26" width="175" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Periodo adeudado]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="3811ffe0-623d-44f8-a900-ae88b2915443" x="276" y="1" width="84" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{deuda}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="45aaeb2e-3646-4735-9b35-a8af7ed5227e" x="3" y="0" width="263" height="20" isRemoveLineWhenBlank="true"/>
+				<textElement textAlignment="Justified">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{paciente}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="3811ffe0-623d-44f8-a900-ae88b2915443" x="380" y="1" width="67" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{desde}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="5ec4ec51-bb02-4280-b4c6-195f73592ad1" x="447" y="1" width="22" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[-]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="3811ffe0-623d-44f8-a900-ae88b2915443" x="469" y="1" width="86" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{hasta}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

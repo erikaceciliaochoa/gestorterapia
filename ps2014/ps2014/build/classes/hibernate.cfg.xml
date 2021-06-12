@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/proyecto</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">1234</property>
+    <!-- Otras propiedades importantes -->
+    <property name="show_sql">true</property>
+    <!-- Clases de mapeo -->
+    <property name="hibernate.hbm2ddl.auto">update</property>
+    <mapping class="Modelo.Ocupacion"/>
+    <mapping class="Modelo.Diagnostico"/>
+    <mapping class="Modelo.Paciente"/>
+    <mapping class="Modelo.Motivo"/>
+    <mapping class="Modelo.Prueba"/>
+    <mapping class="Modelo.Tratamiento"/>
+    <mapping class="Modelo.RangoHorario"/>
+    <mapping class="Modelo.DiaLaboral"/>
+    <mapping class="Modelo.HorarioCab"/>
+    <mapping class="Modelo.HorarioDet"/>
+    <mapping class="Modelo.Turno"/>
+    <mapping class="Modelo.Seguimiento"/>
+    <mapping class="Modelo.Usuario"/>
+  </session-factory>
+</hibernate-configuration>
