@@ -1,3 +1,5 @@
-Tecnología utilizada: Java
-                      Hibernate
-                      MySql
+## Tecnología utilizada:
+--
+- Java
+- Hibernate
+- MySql
